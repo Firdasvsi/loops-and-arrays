@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Раздел с товарами -->
+    <h2>Список товаров</h2>
+    <ul id="product-list">
+        <!-- Список товаров будет добавлен сюда -->
+    </ul>
+
+    <script>
+        // Изначальный массив продуктов
+        let products = ["Ноутбук", "Смартфон", "Наушники"];
+
+        // Добавление новых товаров
+        products.push("Монитор", "Принтер", "Флешка");
+
+        // Получаем элемент ul из DOM
+        let productList = document.getElementById("product-list");
+
+        // Добавляем новые элементы в список
+        products.forEach(product => {
+            let li = document.createElement("li");  // Создаем новый элемент li
+            li.textContent = product;  // Устанавливаем текст внутри li
+            productList.appendChild(li);  // Добавляем li в ul
+        });
+    </script>
+
+    <!-- Раздел с числами -->
+    <h1>Массив чисел</h1>
+    <ul id="numbers-list">
+        <!-- Здесь будут отображаться числа -->
+    </ul>
+
+    <!-- Кнопки для поиска минимального и максимального чисел -->
+    <button id="find-min">Найти минимальное число</button>
+    <button id="find-max">Найти максимальное число</button>
+
+    <!-- Места для отображения результатов -->
+    <p>Минимальное число: <span id="min-number"></span></p>
+    <p>Максимальное число: <span id="max-number"></span></p>
+
+    <script>
+        // Массив чисел
+        let numbers = [5, 12, 3, 9, 22, 7, 18, 6];
+
+        // Получаем элементы для отображения
+        let numbersList = document.getElementById("numbers-list");
+        let minNumber = document.getElementById("min-number");
+        let maxNumber = document.getElementById("max-number");
+
+        // Функция для отображения чисел в списке
+        function displayNumbers() {
+            numbersList.innerHTML = ""; // Очистить список перед добавлением элементов
+            numbers.forEach(number => {
+                let li = document.createElement("li");
+                li.textContent = number;
+                numbersList.appendChild(li);
+            });
+        }
+
+        // Функция для поиска минимального числа
+        function findMin() {
+            let min = Math.min(...numbers); // Находим минимальное число
+            minNumber.textContent = min; // Отображаем результат
+        }
+
+        // Функция для поиска максимального числа
+        function findMax() {
+            let max = Math.max(...numbers); // Находим максимальное число
+            maxNumber.textContent = max; // Отображаем результат
+        }
+
+        // Отображаем все числа сразу при загрузке страницы
+        displayNumbers();
+
+        // Добавляем обработчики событий для кнопок
+        document.getElementById("find-min").addEventListener("click", findMin);
+        document.getElementById("find-max").addEventListener("click", findMax);
+    </script>
+
+</body>
+
+</html>
