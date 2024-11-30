@@ -1,2 +1,2 @@
-# loops-and-arrays
-loops and arrays
+# Циклы и массивы
+
